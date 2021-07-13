@@ -13,6 +13,45 @@
         10 JS Exercises
     --><head>
 		<style>
+			/* 1 header title changed
+			.jumbotron > .col-md-6 > h1 {
+				color: green;
+			} */
+			/* 2.navbar of every child is target */
+			/* .nav * {
+				text-decoration: underline;
+				color: indigo;
+			}
+			.nav > .text-muted {
+				color: indigo !important;
+			} */
+
+			/* 3 continue reading */
+			/* .jumbotron div p:last-of-type a {
+				color: orange !important;
+			} */
+			/* 4 */
+			/* main div div div:first-of-type {
+				background-color: greenyellow;
+			}
+			.nav a:nth-child(2n + 2) {
+				color: red !important;
+			}
+			main div div div {
+				background-color: rgb(161, 192, 209);
+			}
+			main div div div p a:nth-child(1) {
+				color: rgb(165, 42, 42);
+			}
+			aside div ol li a {
+				color: blueviolet;
+			}
+			footer p:last-child a[href] {
+				color: indigo;
+			} */
+			/* body footer {
+				background-color: rgb(66, 147, 194);
+			} */
 			/*
             EX1) Write a selector to target the h1 in jumbotron
          
@@ -53,46 +92,53 @@
 			crossorigin="anonymous"
 		/>
 
+		<!-- EX1) Write a selector to target the h1 in jumbotron
+         
+            EX2) Write a selector to target every children of the navbar
+            EX3) Write a selector to target the "continue reading..." inside the jumbotron
+            EX4) Write a selector to target the first blogpost
+            EX5) Write a selector to target the "even" links in the navbar
+            EX6) Write a selector to target the last blog post
+            EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives )
+            EX8) Write a selector to target the second post author
+            EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly
+            EX10) Write a selector to target the footer -->
+
 		<style>
-			/*1 header title changed */
-			.jumbotron > .col-md-6 > h1 {
-				color: green;
+			.jumbotron h1 {
+				color: crimson !important;
 			}
-			/* 2.navbar of every child is target */
+			/* .nav > .text-muted {
+				color: indigo !important;
+			} */
 			.nav * {
 				text-decoration: underline;
-				color: indigo;
-			}
-			.nav > .text-muted {
 				color: indigo !important;
 			}
-
-			/* 3 continue reading */
 			.jumbotron div p:last-of-type a {
 				color: orange !important;
+				text-decoration: none;
 			}
-			/* 4 */
-			main div div div:first-of-type {
-				background-color: greenyellow;
+			main .blog-main > h3 + .blog-post {
 			}
-			.nav a:nth-child(2n + 2) {
+			nav.nav > a:nth-child(2n) {
+				color: rgb(140, 0, 255) !important;
+			}
+			main .blog-main .blog-post:last-of-type {
 				color: red !important;
 			}
-			main div div div {
-				background-color: rgb(161, 192, 209);
+			main .blog-sidebar div:nth-child(2) > ol > li {
+				background-color: brown !important;
 			}
-			main div div div p a:nth-child(1) {
-				color: rgb(165, 42, 42);
+			main .blog-main .blog-post:nth-child(3) > h2 + p > a {
+				color: rgb(37, 137, 219) !important;
 			}
-			aside div ol li a {
-				color: blueviolet;
+			p:last-of-type > a {
+				color: rgb(16, 155, 136) !important;
 			}
-			footer p:last-child a[href] {
-				color: indigo;
+			footer {
+				background-color: rgb(164, 247, 11) !important;
 			}
-			/* body footer {
-				background-color: rgb(66, 147, 194);
-			} */
 			.bd-placeholder-img {
 				font-size: 1.125rem;
 				text-anchor: middle;
@@ -528,53 +574,55 @@
 
 			 */
 			//    --------------------------ex11---------------------------------
-			console.log(document.querySelector('.nav'));
-			const addLink = () => {
-				let nav = document.querySelector('.nav');
-				let link = document.createElement('a');
-				link.innerHTML = 'blog';
-				link.classList.add('p-2');
-				link.classList.add('text-muted');
-				nav.appendChild(link);
-			};
-			// -----------------------------------ex12--------------------------------
-			console.log(document.body.querySelector('h1'));
-			const changeTitleColor = () => {
-				let title = document.body.querySelector('h1');
-				title.style.color = 'pink';
-			};
-			//////////////////ex13///////////////////////////
-			console.log(document.querySelector('.jumbotron'));
-			const jumbotronBackGround = () => {
-				let jum = document.body.querySelector('.jumbotron');
+			// console.log(document.querySelector('.nav'));
+			// const addLink = () => {
+			// 	let nav = document.querySelector('.nav');
+			// 	let link = document.createElement('a');
+			// 	link.innerHTML = 'blog';
+			// 	link.classList.add('p-2');
+			// 	link.classList.add('text-muted');
+			// 	nav.appendChild(link);
+			// };
+			// // -----------------------------------ex12--------------------------------
+			// console.log(document.body.querySelector('h1'));
+			// const changeTitleColor = () => {
+			// 	let title = document.body.querySelector('h1');
+			// 	title.style.color = 'pink';
+			// };
+			// //////////////////ex13///////////////////////////
+			// console.log(document.querySelector('.jumbotron'));
+			// const jumbotronBackGround = () => {
+			// 	let jum = document.body.querySelector('.jumbotron');
 
-				jum.setAttribute('style', 'background-color: orange!important');
-			};
-			/////////////////////ex14//////////////////////
-			console.log(document.querySelectorAll('aside ol')[1]);
-			const removeSecondOl = () => {
-				document.querySelectorAll('aside ol')[1].remove();
-			};
-			//////////////////////ex15/////////////////////
-			console.log(document.querySelector('.jumbotron div'));
-			const changeColumn = () => {
-				let column = document.querySelector('.jumbotron div');
-				column.style.width = '400';
-			};
-			//////////////////ex16///////////////////////////
-			console.log(document.querySelector('svg'));
-			const removeSearchIcon = () => {
-				document.querySelector('svg').remove();
-			};
-			let para = document.querySelectorAll('div .blog-post p:nth-child(3)');
-			console.log(para);
-			const trim = () => {
-				let para = document.querySelectorAll('div .blog-post p:nth-child(3)');
-				for (let p of para) {
-					p.style.color = 'red';
-					p.trim();
-				}
-			};
+			// 	jum.setAttribute('style', 'background-color: orange!important');
+			// };
+			// /////////////////////ex14//////////////////////
+			// console.log(document.querySelectorAll('aside ol')[1]);
+			// const removeSecondOl = () => {
+			// 	document.querySelectorAll('aside ol')[1].remove();
+			// };
+			// //////////////////////ex15/////////////////////
+			// console.log(document.querySelector('.jumbotron div'));
+			// const changeColumn = () => {
+			// 	let column = document.querySelector('.jumbotron div');
+			// 	column.style.width = '400';
+			// };
+			// //////////////////ex16///////////////////////////
+			// console.log(document.querySelector('svg'));
+			// const removeSearchIcon = () => {
+			// 	document.querySelector('svg').remove();
+			// };
+			// let para = document.querySelectorAll('div .blog-post p:nth-child(3)');
+			// console.log(para);
+			// const trim = () => {
+			// 	let para = document.querySelectorAll('div .blog-post p:nth-child(3)');
+			// 	for (let p of para) {
+			// 		p.style.color = 'red';
+			// 		p.trim();
+			// 	}
+			// };
+			// console.log('manish');
+			// console.log(document.querySelectorAll('.blog-main '));
 		</script>
 	</body>
 	<grammarly-desktop-integration
